@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+var program = require('commander')
+	,mpath=require('../index').mpath;
+
+var version=require(mpath['package'])['version']
+	,cliHelp=require(mpath['cliHelp'])
+	,lever=require(mpath['lever']);
+	
+program
+	.version(version)
+	.usage('<cmd> [options]')
+	.option('-l, --debug', '<build> option: with debugging.')
+	.option('-b, --build', 'build project.')
+	.option('--no-min', 'build without compress.')
+	.option('-t, --daily', 'test project on daily env.')
+	.option('-p, --publish', 'publish project.');
+
+program
+	.command('conf')
+	.description(cliHelp('conf'))
+	.action(function() {
+		console.log(cliHelp('conf'));
+	});
+
+program
+	.command('init')
+	.description(cliHelp('init'))
+	.action(function() {
+		lever.init();
+	});
+
+program
+	.command('debug')
+	.description(cliHelp('debug'))
+	.action(function() {
+		console.log(cliHelp('debug'));
+	});
+
+var argv=process.argv;
+program.parse(argv);
+if(argv.length<3||!cliHelp(argv[2])){
+	program.help();
+}

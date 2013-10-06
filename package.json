@@ -1,0 +1,32 @@
+{
+  "name": "lever",
+  "description": "前端持续集成开发工具，“开发、测试、集成、发布”一条龙服务",
+  "version": "0.0.1",
+  "author": "miclay",
+  "keywords": [
+    "ci",
+    "front-end",
+    "dev",
+    "develop",
+    "tool",
+    "cli",
+    "cmd",
+    "command-line",
+    "lv",
+    "lever"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miclay/lever.git"
+  },
+  "main": "bin/lv",
+  "bin": {
+    "lv": "./bin/lv",
+    "lever": "./bin/lv"
+  },
+  "dependencies": {
+    "commander": "~2.0.0",
+    "mktree": "~1.0.0"
+  },
+  "license": "BSD"
+}
